@@ -1,8 +1,8 @@
 {
-  "name": "name...",
+  "name": "Nomads",
   "version": "0.1.0",
   "description": "description...",
-  "author": "gregory@dappuniversity.com",
+  "author": "hwek21",
   "dependencies": {
     "babel-polyfill": "6.26.0",
     "babel-preset-env": "1.7.0",
@@ -23,7 +23,7 @@
     "truffle": "^5.1.65",
     "web3": "1.0.0-beta.55"
   },
-  "homepage": "http://dappuniversity.github.io/decentragram",
+  "homepage": "https://www.ai-nomads.com/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

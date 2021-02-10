@@ -30,10 +30,10 @@ contract('Decentragram', ([deployer, author, tipper]) => {
       })
     })
 
-    // it('has a name', async () => {
-    //   const name = await decentragram.name()
-    //   assert.equal(name, 'Decentragram')
-    // })
+    it('has a name', async () => {
+      const name = await decentragram.name()
+      assert.equal(name, 'Nomads')
+    })
   })
 
   // describe('images', async () => {
