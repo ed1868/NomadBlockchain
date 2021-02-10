@@ -22,11 +22,16 @@ contract('Decentragram', ([deployer, author, tipper]) => {
 
     describe('images', async () => {
       let result
-      it('create images', async () => {
-        result =  await decentragram.uploadImage();
 
-        let image = await decentragram.images(1);
-        console.log('heellloooo ', image);
+      const hash = "hashingitOut";
+
+      before(async () => {
+        result = await decentragram.uploadImage(hash, 'Image description is this', {from: author})
+        imageCount = await decentragram.imageCount()
+      })
+
+
+      it('create images', async () => {
       })
     })
 
