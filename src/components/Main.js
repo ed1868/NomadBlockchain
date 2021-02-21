@@ -10,7 +10,7 @@ class Main extends Component {
           <main role="main" className="col-lg-12 ml-auto mr-auto" style={{ maxWidth: '500px' }}>
             <div className="content mr-auto ml-auto">
               <p>&nbsp;</p>
-              <h1 className="d-4">Edit this file in App.js!</h1>
+              <h1 className="d-4">THIS IS THE FIRST COMMIT SINCE I GOT JACKED! TO THE MOON BABY</h1>
                 
                 {/* Code ... */}
 
