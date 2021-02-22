@@ -28,7 +28,7 @@ contract('Decentragram', ([deployer, author, tipper]) => {
       const hash = "hashingitOut";
 
       before(async () => {
-        result = await decentragram.uploadImage(hash, 'Tony Stark Ironman Suite V4', {from: author})
+        result = await decentragram.uploadImage(hash, 'Tony Stark Ironman Suite V4', { from: author })
         imageCount = await decentragram.imageCount()
       })
 
@@ -38,21 +38,34 @@ contract('Decentragram', ([deployer, author, tipper]) => {
 
         assert.equal(imageCount, 1)
         const event = result.logs[0].args;
-      assert.equal(event.id.toNumber(), imageCount.toNumber(), 'id is correct')
-      assert.equal(event.hash, hash, 'Hash is correct')
-      assert.equal(event.description, 'Tony Stark Ironman Suite V4', 'description is correct')
-      assert.equal(event.tipAmount, '0', 'tip amount is correct')
-      assert.equal(event.author, author, 'author is correct')
+        assert.equal(event.id.toNumber(), imageCount.toNumber(), 'id is correct')
+        assert.equal(event.hash, hash, 'Hash is correct')
+        assert.equal(event.description, 'Tony Stark Ironman Suite V4', 'description is correct')
+        assert.equal(event.tipAmount, '0', 'tip amount is correct')
+        assert.equal(event.author, author, 'author is correct')
         console.log(result.logs[0].args)
 
         // FAILURE TEST : IMAGE MUST HAVE HASH
-        await decentragram.uploadImage('','Tony Stark Ironman Suite V4', {from: author}).should.be.rejected;
-        
+        await decentragram.uploadImage('', 'Tony Stark Ironman Suite V4', { from: author }).should.be.rejected;
+
         // FAILURE TEST : IMAGE MUST HAVE DESCRIPTION
-        await decentragram.uploadImage('Elon Musks DNA','', {from: author}).should.be.rejected;
+        await decentragram.uploadImage('Elon Musks DNA', '', { from: author }).should.be.rejected;
 
       })
+      //CHECK FROM STRUCT
+      it('lists images', async () => {
+        const image = await decentragram.images(imageCount);
+
+        assert.equal(image.id.toNumber(), imageCount.toNumber(), 'id is correct')
+        assert.equal(image.hash, hash, 'Hash is correct')
+        assert.equal(image.description, 'Tony Stark Ironman Suite V4', 'description is correct')
+        assert.equal(image.tipAmount, '0', 'tip amount is correct')
+        assert.equal(image.author, author, 'author is correct')
+      })
     })
+
+
+
 
     it('has a name', async () => {
       const name = await decentragram.name()
